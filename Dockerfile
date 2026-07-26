@@ -1,5 +1,5 @@
 # Etapa 1: Construcción y Pruebas
-FROM node:22-alpine
+FROM node:22-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
@@ -8,7 +8,7 @@ COPY . .
 RUN npm test 
 
 # Etapa 2: Imagen Final (Producción)
-FROM node:18-alpine
+FROM node:22-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci --omit=dev
