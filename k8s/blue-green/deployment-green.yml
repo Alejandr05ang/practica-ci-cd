@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: ghcr.io/alejandr05ang/practica-ci-cd:latest
+        image: ghcr.io/alejandr05ang/b96bef9e64671c87f2d3440ba25f76e7b2f5580c:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
@@ -31,6 +31,10 @@ spec:
             secretKeyRef:
               name: app-secrets
               key: API_KEY
+        - name: APP_VERSION
+          value: "v2"
+        - name: APP_COLOR
+          value: "green"
         livenessProbe:
           httpGet:
             path: /health

@@ -6,6 +6,7 @@ spec:
   type: NodePort
   selector:
     app: practica-ci-cd
+    #version: green
   ports:
     - port: 80
       targetPort: 3000
